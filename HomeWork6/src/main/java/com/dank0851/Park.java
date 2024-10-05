@@ -10,7 +10,7 @@ public class Park {
         private String workingTime;
         private double price;
 
-        public Attraction(String nameAttraction, String workingTime, double price) {
+        private Attraction(String nameAttraction, String workingTime, double price) {
             this.nameAttraction = nameAttraction;
             this.workingTime = workingTime;
             this.price = price;

@@ -27,11 +27,10 @@ public class Main {
         }
 
         Park.Attraction attraction1 = new Park.Attraction("Сюрприз","10,00-22,00",5.5);
-        Park.Attraction surprise1 = new Park.Attraction();
-            surprise1.nameAttraction = "Тир";
-            surprise1.workingTime = "10,00-20,00";
-            surprise1.price =4.55;
 
+        System.out.println("Название атракциона - " + attraction1.nameAttraction);
+        System.out.println("Время работы атракциона - " + attraction1.workingTime);
+        System.out.println("Стоимость атракциона - " + attraction1.price);
 
     }
 }

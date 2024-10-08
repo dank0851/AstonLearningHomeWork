@@ -7,7 +7,7 @@ package com.dank0851;
 public class Park {
 
 
-	public class Attraction {
+	public static class Attraction {
 		String nameAttraction;
 		String workingTime;
 		double price;

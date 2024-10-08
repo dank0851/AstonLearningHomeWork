@@ -5,41 +5,21 @@ package com.dank0851;
  времени их работы и стоимости
 */
 public class Park {
-    public class Attraction {
-        private String nameAttraction;
-        private String workingTime;
-        private double price;
-
-        private Attraction(String nameAttraction, String workingTime, double price) {
-            this.nameAttraction = nameAttraction;
-            this.workingTime = workingTime;
-            this.price = price;
-        }
 
 
-        public String getName() {
-            return nameAttraction;
-        }
+	public class Attraction {
+		String nameAttraction;
+		String workingTime;
+		double price;
 
-        public void setName(String nameAttraction) {
-            this.nameAttraction = nameAttraction;
-        }
+		public Attraction(String nameAttraction, String workingTime, double price) {
+			this.nameAttraction = nameAttraction;
+			this.workingTime = workingTime;
+			this.price = price;
+		}
 
-        public String getWorkingTime() {
-            return workingTime;
-        }
 
-        public void setWorkingTime(String workingTime) {
-            this.workingTime = workingTime;
-        }
 
-        public double getPrice() {
-            return price;
-        }
-
-        public void setPrice(double price) {
-            this.price = price;
-        }
-    }
+	}
 }
 

@@ -25,5 +25,13 @@ public class Main {
             person.info();
             System.out.println();
         }
+
+        Park.Attraction attraction1 = new Park.Attraction("Сюрприз","10,00-22,00",5.5);
+        //  Park.Attraction surprise1 = new Park.Attraction();
+      //  surprise1.nameAttraction = "Тир";
+     //   surprise1.workingTime = "10,00-20,00";
+      //  surprise1.price =4.55;
+
+
     }
 }

@@ -22,7 +22,7 @@ public class Main {
         personArray[4] = new Person("Belova Olga", "Dancer", "OlgaDancer@mail.com", "+375444554545", 40000, 28);
 
         for (Person person : personArray) {
-            person.info();
+            person.info1();
             System.out.println();
         }
 

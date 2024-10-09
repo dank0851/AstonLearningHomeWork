@@ -29,7 +29,13 @@ public class Person {
             this.age = age;
     }
 
-    public void info() {
-        System.out.println("Name: " + fullName + " | Position: " + position + " | email: " + eMail + " | Phone: " + telephoneNumber + " | Salary: " + salary + " | Age: " + age);
+//    public void info() {
+//        System.out.println("Name: " + fullName + " | Position: " + position + " | email: " + eMail + " | Phone: "
+//                + telephoneNumber + " | Salary: " + salary + " | Age: " + age);
+//    }
+
+    public void info1() {
+        System.out.println("Name: " + fullName + "\n | Position: " + position + "\n | email: " + eMail + "\n | Phone: "
+                + telephoneNumber + "\n | Salary: " + salary + "\n | Age: " + age);
     }
 }

@@ -39,15 +39,7 @@ public class Cat extends Animal {
     public int gluttony;
 
     public static class Feeder {
-        private int feed;
 
-        public void fillFeeder(int n) {
-            feed = feed + n;
-        }
-
-        public Feeder(int feed) {
-            this.feed = feed;
-        }
     }
 
     public Cat() {
@@ -72,20 +64,20 @@ public class Cat extends Animal {
             System.out.println("Дистанция слишком большая. " + range + " > " + runRangeMax);
         }
     }
-
-    public void feedCat(Feeder feeder){
+    @Override
+    public void feed(int feed){
 
         if (this.satiety) {
             System.out.println("Кот сыт, количество еды в миске не изменилось.");
         }
-        if (feeder.feed >= this.gluttony) {
-            feeder.feed -= this.gluttony;
+        if (feed >= this.gluttony) {
+            feed -= this.gluttony;
             this.satiety = true;
             System.out.print("Кот теперь сыт. ");
         } else {
             System.out.print("Коту не хватило еды. ");
         }
-        System.out.println("В миске осталось " + feeder.feed + " еды.");
+        System.out.println("В миске осталось " + feed + " еды.");
     }
 
     @Override

@@ -12,7 +12,7 @@ public class Main {
 		Cat.Feeder feeder = new Cat.Feeder(20);
 
 		for (Cat cat : cats) {
-			cat.feedCat(feeder);
+			feed.feed();
 		}
 
 		for (Cat cat : cats) {

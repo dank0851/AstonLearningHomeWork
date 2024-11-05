@@ -12,19 +12,19 @@ public class Main {
                 "apple", "plum", "orange", "kiwi", "strawberry", "orange"
         );
 
-        ArrayList<String> twentyWords = new ArrayList<>();
-        twentyWords.add("a");
 
-        // Используем HashMap для подсчета уникальных слов и их количества
-        Set<String> wordCount = new HashSet<>();
+        Map<String, Integer> wordCount = new HashMap<>();
 
-        for (int i = 0; i < 20; i++) {
-            wordCount.add(words.get(i));
+        for (String word : words) {
+            wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
         }
-        System.out.println(wordCount);
-        int size = wordCount.size();
-        System.out.println("Количество уникальных элементов - " + size);
 
+
+        for (Map.Entry<String, Integer> entry : wordCount.entrySet()) {
+            System.out.println("Слово: " + entry.getKey() + ", Количество: " + entry.getValue());
+        }
+
+        // Задача 2
         PhoneBook.add("Ivanov", "123-4567");
         PhoneBook.add("Petrov", "234-5678");
         PhoneBook.add("Ivanov", "345-6789"); // Иванов имеет два номера
@@ -34,6 +34,7 @@ public class Main {
 
         // Выводим номера для фамилии "Petrov"
         System.out.println("Номера для Петров: " + PhoneBook.get("Petrov"));
+
 
 
     }

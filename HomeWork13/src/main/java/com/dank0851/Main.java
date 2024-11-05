@@ -13,14 +13,13 @@ public class Main {
         );
 
 
-        Map<String, Integer> wordCount = new HashMap<>();
+        Map<String, Integer> uniqeWords = new HashMap<>();
 
         for (String word : words) {
-            wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
+            uniqeWords.put(word, uniqeWords.getOrDefault(word, 0) + 1);
         }
 
-
-        for (Map.Entry<String, Integer> entry : wordCount.entrySet()) {
+        for (Map.Entry<String, Integer> entry : uniqeWords.entrySet()) {
             System.out.println("Слово: " + entry.getKey() + ", Количество: " + entry.getValue());
         }
 

@@ -6,7 +6,7 @@ package com.dank0851;
  */
 
 public abstract class Animal {
-
+    public int catBowl = 0;
 
     public void run(int distance) {
         System.out.println("Животное пробежало " + distance + " м.");
@@ -16,7 +16,10 @@ public abstract class Animal {
         System.out.println("Животное проплыло " + distance + " м.");
     }
 
-    public eat(String name)
+    public void getFoodFromBowl() {
+
+        System.out.println("В миске кота " + catBowl + "корма");
+    }
 
 
 }

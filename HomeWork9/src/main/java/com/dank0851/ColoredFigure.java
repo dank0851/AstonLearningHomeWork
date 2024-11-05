@@ -1,4 +1,4 @@
-package com.dank0851;
+package com.github.dank0851;
 
 public abstract class ColoredFigure {
     public String fillColor;

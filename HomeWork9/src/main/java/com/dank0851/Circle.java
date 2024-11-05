@@ -1,4 +1,6 @@
-package com.github.dank0851;
+package com.dank0851;
+
+import com.github.dank0851.ColoredFigure;
 
 public class Circle extends ColoredFigure implements GeometricFigure {
     public double r;

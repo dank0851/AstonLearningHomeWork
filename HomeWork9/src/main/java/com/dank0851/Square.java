@@ -1,5 +1,7 @@
 package com.dank0851;
 
+import com.github.dank0851.ColoredFigure;
+
 public class Square extends ColoredFigure implements GeometricFigure {
     public double a;
 

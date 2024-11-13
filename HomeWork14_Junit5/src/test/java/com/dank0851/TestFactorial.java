@@ -7,37 +7,46 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.w3c.dom.ls.LSOutput;
 
+import static com.dank0851.Factorial.factorial;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestFactorial {
 	@Test
 	@DisplayName("Tест факториала 5")
 	void factorialFiveAssertTrueTest() {
-		long factFive = Factorial.factorial(5);
+		long factFive = factorial(5);
 		assertEquals(120, factFive);
 	}
 
 	@Test
 	@DisplayName("Tест на факториал 5")
 	void factorialFiveAssertFalseTest() {
-		long factFive = Factorial.factorial(5);
+		long factFive = factorial(5);
 		assertNotEquals(121, factFive);
 	}
 
-	@ParameterizedTest
-	@DisplayName("Параметризованный тест факториала (только для значения факториала)")
-	@ValueSource(ints = {1, 2, 6, 24, 120})
-	public void isFactorial_ParameterizedTest(int number){
-		assertTrue(number > 0);
+	@Test
+	@DisplayName ( "Проверка на неотрицательность.")
+	void testFactorialPositive() {
+		IllegalArgumentException exception = expectThrows(IllegalArgumentException.class, () -> factorial(-1));
+		assertEquals(exception.getMessage(), "Введите целое неотрицательное число.");
+	}
 
-		long i = 1, fact = Factorial.factorial((int) i);
-		while(fact < number){
-			i++;
-			fact = Factorial.factorial((int) i);
-		}
+	@DataProvider
+	public Object[][] data() {
+		return new Object[][] {
+				{0, 1},
+				{1, 1},
+				{5, 120}
+		};
+	}
 
-		Assertions.assertEquals(fact, number);
+	@Test(description = "Вычисление значения факториала числа.", dependsOnMethods = {"testFactorialPositive"}, dataProvider = "data")
+	public void testFactorialCalculations(Integer a, Integer b) {
+		Assert.assertEquals(Main.calculateFactorial(a), b, "Факториал вычеслен неверно");
 	}
 }

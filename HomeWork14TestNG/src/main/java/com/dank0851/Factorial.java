@@ -4,11 +4,16 @@ package com.dank0851;
 public class Factorial {
 
 	public static long factorial(long n) {
-		long result = 1;
-		for (int i = 1; i <= n; i++) {
-			result *= i;
+		if (n < 0) {
+			throw new IllegalArgumentException("Введите целое неотрицательное число.");
+		} else if (n == 0) {
+			return 1;
 		}
-		return result;
+		int factorial = 1;
+		for (int i = 1; i <= n; i++) {
+			factorial *= i;
+		}
+		return factorial;
 	}
 }
 

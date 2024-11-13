@@ -1,6 +1,8 @@
 import com.dank0851.Factorial;
 import org.testng.Assert;
 import org.testng.annotations.*;
+
+import static com.dank0851.Factorial.factorial;
 import static org.testng.Assert.*;
 
 public class FactorialTests {
@@ -23,46 +25,35 @@ public class FactorialTests {
 
 	@Test(testName = "Tест факториала 5")
 	void factorialFiveAssertTrueTest() {
-		long factFive = Factorial.factorial(5);
+		long factFive = factorial(5);
 		assertEquals(120, factFive);
 	}
 
 	@Test(testName = "Tест на неверный факториал 5")
 	void factorialFiveAssertFalseTest() {
-		long factFive = Factorial.factorial(5);
+		long factFive = factorial(5);
 //        assertNotEquals(120, factFive);
 		Assert.assertNotEquals(121, factFive);
 	}
 
-	@DataProvider(name = "getFactorialData", parallel = true)
-	public static Object[][] getFactorialData() {
-		return new Object[][]{
-				{1},
-				{2},
-				{6},
-				{24},
-				{120},
-				{6402373705728000L}
+	@Test(description = "Проверка на неотрицательность.")
+	void testFactorialPositive() {
+		IllegalArgumentException exception = expectThrows(IllegalArgumentException.class, () -> factorial(-1));
+		assertEquals(exception.getMessage(), "Введите целое неотрицательное число.");
+	}
+
+	@DataProvider
+	public Object[][] data() {
+		return new Object[][] {
+				{0, 1},
+				{1, 1},
+				{5, 120}
 		};
 	}
 
-	@Test(testName = "Параметризованный тест факториала (только для значения факториала)",
-			dataProvider = "getFactorialData", threadPoolSize = 2, invocationCount = 2)
-	public void isFactorial_ParameterizedTest(long number){
-		final Thread thread = Thread.currentThread();
-		System.out.printf("#%d: %s, %d\n", thread.getId(), thread.getName(), number);
 
-		assertTrue(number > 0);
-
-		long i = 1, fact = Factorial.factorial(i);
-		while(fact < number){
-			i++;
-			fact = Factorial.factorial(i);
-		}
-
-		Assert.assertEquals(fact, number);
-	}
-
+	@org.jetbrains.annotations.NotNull
+	@org.jetbrains.annotations.Contract(value = " -> new", pure = true)
 	@DataProvider(name = "getFactorialDataKeyValue", parallel = true)
 	public static Object[][] getFactorialDataKeyValue() {
 		return new Object[][] {
@@ -81,7 +72,7 @@ public class FactorialTests {
 		final Thread thread = Thread.currentThread();
 		System.out.printf("#%d: %s, %d\n", thread.getId(), thread.getName(), fact);
 
-		assertEquals(fact, Factorial.factorial(number));
+		assertEquals(fact, factorial(number));
 	}
 
 }

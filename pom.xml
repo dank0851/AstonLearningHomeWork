@@ -17,6 +17,10 @@
         <module>HomeWork13</module>
         <module>HomeWork14_Junit5</module>
         <module>HomeWork14TestNG</module>
+        <module>Homework15</module>
+        <module>HomeWork16</module>
+        <module>HomeWork17</module>
+        <module>HomeWork18</module>
     </modules>
 
     <properties>
